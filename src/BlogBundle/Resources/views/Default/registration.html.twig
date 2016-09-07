@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    {{ form_start(form) }}
+    <div class="flex">
+        <label for="title">Nom :</label>
+        {{ form_widget(form.username) }}
+    </div>
+
+    <div class="flex">
+        <label for="email">E-mail :</label>
+        {{ form_widget(form.email) }}
+    </div>
+
+    <div class="flex">
+        <label for="pass">Mot de passe :</label>
+        {{ form_widget(form.password.first) }}
+    </div>
+
+    <div class="flex">
+        <label for="confirmPass">Confirmer le mot de passe :</label>
+        {{ form_widget(form.password.second) }}
+    </div>
+
+    <div class="flex">
+        <label for="upload">Image profil : </label>
+        {{ form_widget(form.avatar) }}
+    </div>
+    <button type="submit">Valider</button>
+    {{ form_end(form) }}
+
+{% endblock %}

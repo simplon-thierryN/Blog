@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+
+    <section id="index_blog">
+        <a href="{{ path('addArticle',{'userId':userId}) }}">Ajouter un article</a>
+
+        <div class="post flex">
+            {% for article in listArticle %}
+
+                        <figure>
+                            <a href="{{ path('articleView',{'idArticle':article.id}) }}">
+                            <img src="{{ asset('bundles/blog/img/'~article.getImage()) }}" alt="{{ article.getImage() }}">
+                            <figcaption>
+                               <ul>
+                                   <li>
+                                       {{ article.title }}
+                                   </li>
+                                   <li>
+                                       {{ article.date|date('d/m/Y') }}
+                                   </li>
+                               </ul>
+                            </figcaption>
+                            </a>
+                        </figure>
+
+
+            {% endfor %}
+        </div>
+
+    </section>
+
+{% endblock %}

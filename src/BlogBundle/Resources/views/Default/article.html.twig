@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <section id="blog_article">
+
+        <div>
+            <a href="{{ path('home') }}">Retour</a>
+        </div>
+
+        <div class="list_img">
+
+        </div>
+        <div class="article flex">
+            <div class="author">
+                <img src="{{ asset('bundles/blog/img/'~article.getUser().getAvatar) }}" alt="">
+                <p>
+                    {{ article.getUser().getUsername }}
+                </p>
+            </div>
+
+            <div class="content">
+                <h2>
+                    {{ title }}
+                </h2>
+                <img src="{{ asset('bundles/blog/img/'~article.getImage()) }}" alt="rtrt">
+                <p>
+                    {{ content }}
+                </p>
+                <a href="{{ path('updateArticle',{'idArticle':id}) }} ">Modifier l'article</a>
+
+                <a href="{{ path('listImg',{'userId':article.getUser().getId() }) }}">Modifier image</a>
+            </div>
+
+            <select name="list_img" id="list_img">
+                {% for test in albumImg %}
+                    <option value="">{{ test.url }}</option>
+                {% endfor %}
+            </select>
+
+
+        </div>
+
+    </section>
+
+{% endblock %}

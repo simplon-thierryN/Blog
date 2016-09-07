@@ -1,0 +1,45 @@
+# To get started with security, check out the documentation:
+# http://symfony.com/doc/current/book/security.html
+security:
+
+    encoders:
+        BlogBundle\Entity\User: bcrypt
+
+    providers:
+        our_db_provider:
+            entity:
+                class: BlogBundle:User
+#                property: username
+        in_memory:
+            memory: ~
+
+    firewalls:
+        dev:
+            pattern:    ^/(_(profiler|wdt)|css|images|js)/
+            security:   false
+
+        main:
+            pattern:    ^/
+            http_basic: ~
+            provider:   our_db_provider
+            anonymous: ~
+            form_login:
+                 login_path:    login
+                 check_path:    login
+            logout:
+                path:   logout
+                target: /
+
+    role_hierarchy:
+        ROLE_USER:    ROLE_USER
+        ROLE_ADMIN: [ROLE_ADMIN, ROLE_USER]
+
+    access_control:
+        - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/registration, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/, roles: ROLE_USER }
+
+
+
+
+

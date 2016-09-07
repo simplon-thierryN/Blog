@@ -1,0 +1,26 @@
+#blog_article{
+  border: 1px solid grey;
+  width: 90%;
+  margin: auto;
+  .article{
+    justify-content: space-around;
+    .author{
+      border: 1px solid blue;
+      width: 25%;
+      text-align: center;
+      img{
+        width: 150px;
+        height: 150px;
+        margin-top: 2em;
+      }
+    }
+    .content{
+      border: 1px solid red;
+      width: 70%;
+      img{
+        width: 100%;
+        height: 450px;
+      }
+    }
+  }
+}

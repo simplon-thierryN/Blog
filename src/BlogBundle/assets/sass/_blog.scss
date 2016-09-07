@@ -1,0 +1,19 @@
+#index_blog{
+  width: 90%;
+  margin: auto;
+  border:1px solid red;
+  .post{
+    width: 100%;
+    justify-content: space-around;
+      figure{
+        margin:1em 0;
+        border:1px solid red;
+        width: 32%;
+        text-align: center;
+        img{
+          width:100%;
+          height:250px;
+        }
+      }
+  }
+}

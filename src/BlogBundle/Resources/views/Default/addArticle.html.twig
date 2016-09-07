@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    {{ form_start(formArticle) }}
+    <div class="flex">
+        <label for="title">Titre :</label>
+        {{ form_widget(formArticle.title) }}
+    </div>
+    <div class="flex">
+        <label for="content">Texte :</label>
+        {{ form_widget(formArticle.content) }}
+    </div>
+
+    <div class="flex">
+        <label for="image">Upload image :</label>
+        {{ form_widget(formArticle.image) }}
+    </div>
+    <button type="submit">Valider</button>
+    {{ form_end(formArticle) }}
+    <a href="{{ path('home') }}">Retour</a>
+{% endblock %}
